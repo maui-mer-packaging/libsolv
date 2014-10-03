@@ -10,14 +10,13 @@ Name:       libsolv
 # << macros
 
 Summary:    A new approach to package dependency solving
-Version:    0.3.0
+Version:    0.4.0
 Release:    1
 Group:      Development/Libraries/C and C++
 License:    BSD 3-Clause
 URL:        git://gitorious.org/opensuse/libsolv.git
 Source0:    libsolv-%{version}.tar.bz2
 Source100:  libsolv.yaml
-Patch0:     add-mipsel.patch
 BuildRequires:  pkgconfig(rpm)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  db4-devel
@@ -94,8 +93,6 @@ A new approach to package dependency solving.
 %prep
 %setup -q -n %{name}-%{version}
 
-# add-mipsel.patch
-%patch0 -p1
 # >> setup
 # << setup
 
@@ -156,6 +153,7 @@ export NO_BRP_STRIP_DEBUG=true
 %{_includedir}/solv
 %{_bindir}/helix2solv
 %{_datadir}/cmake/Modules/*
+%{_mandir}/man3/*
 # << files devel
 
 %files -n perl-solv
